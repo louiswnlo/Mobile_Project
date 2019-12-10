@@ -3,6 +3,7 @@ package cs.hku.hk.mobileproject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
