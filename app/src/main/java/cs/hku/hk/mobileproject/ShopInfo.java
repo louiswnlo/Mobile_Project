@@ -16,7 +16,9 @@ public class ShopInfo extends AppCompatActivity {
         Intent intent = getIntent();
         int shopId = intent.getIntExtra("SHOP_ID", 0);
 
-        TextView title = (TextView) findViewById(R.id.textView11);
+
+
+        TextView title = (TextView) findViewById(R.id.service_title);
 
         title.setText("SHOP ID = " + shopId);
 
