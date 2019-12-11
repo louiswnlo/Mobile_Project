@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".ShopList">
 
-
     <ListView
         android:id="@+id/listview"
         android:layout_width="match_parent"

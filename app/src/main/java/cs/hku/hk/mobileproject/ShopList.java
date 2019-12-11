@@ -40,6 +40,12 @@ public class ShopList extends AppCompatActivity {
 
         mListView = (ListView) findViewById(R.id.listview);
 
+        ViewGroup header = (ViewGroup) getLayoutInflater().inflate(R.layout.toolbar_back, mListView, false);
+        TextView headerTitle = (TextView) header.findViewById(R.id.service_title);
+        headerTitle.setText("Testing");
+
+        mListView.addHeaderView(header, null, false);
+
         CustomAdaptor customAdaptor = new CustomAdaptor();
         mListView.setAdapter(customAdaptor);
     }
