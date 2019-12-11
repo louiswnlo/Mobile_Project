@@ -13,18 +13,6 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="1dp"
-        android:text="Butterfly Nails"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_back" />
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -38,7 +26,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_back">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,38 +35,89 @@
 
             <ImageView
                 android:id="@+id/imageView2"
+                android:src="@drawable/shop_img_1"
+                android:scaleType="centerCrop"
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
-                app:srcCompat="@drawable/shop_img_1" />
+                android:layout_height="200dp" />
+
+            <RelativeLayout
+                android:padding="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <RatingBar
+                    android:id="@+id/rating_bar"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_centerVertical="true"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:stepSize="0.1"
+                    android:rating="4.5"
+                    android:progressTint="#ffea61"
+                    />
+
+                <TextView
+                    android:id="@+id/num_reviews_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/rating_bar"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="247 Reviews"
+                    android:textSize="12sp"/>
+
+                <ImageView
+                    android:id="@+id/next_btn"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/next_arrow"
+                    android:layout_toRightOf="@id/num_reviews_txt"/>
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/treatment_btn"
+                android:background="#f2f2f2"
+                android:drawableRight="@drawable/down_arrow_custom"
+                android:text="Choose your treatment"
+                android:textAlignment="center"
+                android:paddingRight="15dp"
+                android:paddingLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp"
+                style="?android:attr/borderlessButtonStyle"
+                android:textAllCaps="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp" />
+
+            <Button
+                android:id="@+id/time_btn"
+                android:background="#f2f2f2"
+                android:drawableRight="@drawable/down_arrow_custom"
+                android:text="Choose a time"
+                android:textAlignment="center"
+                android:paddingRight="15dp"
+                android:paddingLeft="15dp"
+                android:layout_marginBottom="15dp"
+                style="?android:attr/borderlessButtonStyle"
+                android:textAllCaps="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp" />
 
             <View
-                android:id="@+id/divider4"
+                android:id="@+id/divider"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider" />
-
-            <Button
-                android:id="@+id/button7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Choose your treatment" />
-
-            <Button
-                android:id="@+id/button8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Choose your time" />
-
-            <Button
-                android:id="@+id/button9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Book Now" />
-
-            <View
-                android:id="@+id/divider5"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="3dp"
                 android:background="?android:attr/listDivider" />
 
             <TextView
@@ -107,5 +146,8 @@
                 android:textSize="24sp" />
 
         </LinearLayout>
+
     </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
