@@ -14,51 +14,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginBottom="14dp"
-        android:text="Login"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="@+id/button2" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="144dp"
-        android:layout_marginLeft="144dp"
-        android:layout_marginEnd="144dp"
-        android:layout_marginRight="144dp"
-        android:layout_marginBottom="108dp"
-        android:text="New Register"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="364dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/app_name" />
-
-    -->
-
     <ImageButton
-        android:id="@+id/button"
+        android:id="@+id/nail_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -70,7 +27,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <ImageButton
-        android:id="@+id/button10"
+        android:id="@+id/massage_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -81,10 +38,10 @@
         android:src="@drawable/ic_action_massage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/nail_btn" />
 
     <ImageButton
-        android:id="@+id/button2"
+        android:id="@+id/hair_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -94,11 +51,11 @@
         android:src="@drawable/ic_action_hair"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintStart_toEndOf="@+id/nail_btn"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <ImageButton
-        android:id="@+id/button11"
+        android:id="@+id/eyelashes_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
@@ -110,8 +67,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/button10"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintStart_toEndOf="@+id/massage_btn"
+        app:layout_constraintTop_toBottomOf="@+id/hair_btn" />
 
     <TextView
         android:id="@+id/textView14"
@@ -122,11 +79,11 @@
         android:textSize="40sp"
         android:textStyle="bold"
         app:fontFamily="cursive"
-        app:layout_constraintBottom_toTopOf="@+id/button10"
-        app:layout_constraintEnd_toEndOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/massage_btn"
+        app:layout_constraintEnd_toEndOf="@+id/nail_btn"
         app:layout_constraintHorizontal_bias="0.518"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintStart_toStartOf="@+id/nail_btn"
+        app:layout_constraintTop_toBottomOf="@+id/nail_btn"
         app:layout_constraintVertical_bias="0.045" />
 
     <TextView
@@ -138,11 +95,11 @@
         android:textSize="40sp"
         android:textStyle="bold"
         app:fontFamily="cursive"
-        app:layout_constraintBottom_toTopOf="@+id/button11"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/eyelashes_btn"
+        app:layout_constraintEnd_toEndOf="@+id/hair_btn"
         app:layout_constraintHorizontal_bias="0.518"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintStart_toStartOf="@+id/hair_btn"
+        app:layout_constraintTop_toBottomOf="@+id/hair_btn"
         app:layout_constraintVertical_bias="0.045" />
 
     <TextView
@@ -154,10 +111,10 @@
         android:textSize="40sp"
         android:textStyle="bold"
         app:fontFamily="cursive"
-        app:layout_constraintEnd_toEndOf="@+id/button11"
+        app:layout_constraintEnd_toEndOf="@+id/eyelashes_btn"
         app:layout_constraintHorizontal_bias="0.518"
-        app:layout_constraintStart_toStartOf="@+id/button11"
-        app:layout_constraintTop_toBottomOf="@+id/button11"
+        app:layout_constraintStart_toStartOf="@+id/eyelashes_btn"
+        app:layout_constraintTop_toBottomOf="@+id/eyelashes_btn"
         app:layout_constraintVertical_bias="0.045" />
 
     <TextView
@@ -169,10 +126,10 @@
         android:textSize="40sp"
         android:textStyle="bold"
         app:fontFamily="cursive"
-        app:layout_constraintEnd_toEndOf="@+id/button10"
+        app:layout_constraintEnd_toEndOf="@+id/massage_btn"
         app:layout_constraintHorizontal_bias="0.518"
-        app:layout_constraintStart_toStartOf="@+id/button10"
-        app:layout_constraintTop_toBottomOf="@+id/button10"
+        app:layout_constraintStart_toStartOf="@+id/massage_btn"
+        app:layout_constraintTop_toBottomOf="@+id/massage_btn"
         app:layout_constraintVertical_bias="0.045" />
 
     <TextView
