@@ -114,36 +114,73 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp" />
 
+            <Button
+                android:id="@+id/book_btn"
+                android:background="#89729E"
+                android:text="Book Your Treatment"
+                android:textColor="#fff"
+                android:textAlignment="center"
+                android:paddingRight="15dp"
+                android:paddingLeft="15dp"
+                android:layout_marginBottom="15dp"
+                style="?android:attr/borderlessButtonStyle"
+                android:textAllCaps="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp" />
+
             <View
                 android:id="@+id/divider"
                 android:layout_width="match_parent"
-                android:layout_height="3dp"
+                android:layout_height="2dp"
                 android:background="?android:attr/listDivider" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/textView16"
+                android:text="Info"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Reviews"
-                android:textSize="24sp" />
-
-            <ListView
-                android:layout_width="match_parent"
-                android:layout_height="191dp" />
-
-            <TextView
-                android:id="@+id/ShopInfo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Shop Info: It opened in 2017."
-                android:textSize="24sp" />
+                android:layout_height="wrap_content" />
 
             <TextView
-                android:id="@+id/Location"
+                android:id="@+id/shop_info_txt"
+                android:text="@string/shop_info_txt"
+                android:textSize="12sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <View
+                android:id="@+id/divider2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Location: 5D, Lucky Maison, Mongkok"
-                android:textSize="24sp" />
+                android:layout_height="2dp"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:id="@+id/location_txt"
+                android:text="Flat 2A, 2/F, Winway Building, 50 Wellington Street, Central, Hong Kong"
+                android:textSize="12sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+            <!--            <TextView-->
+<!--                android:id="@+id/textView17"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Location: 5D, Lucky Maison, Mongkok"-->
+<!--                android:textSize="24sp" />-->
 
             <TextView
                 android:id="@+id/Map"

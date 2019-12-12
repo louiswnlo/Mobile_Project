@@ -91,4 +91,8 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="shop_info_txt">
+        "More than a concept\n\n"
+        "We all have the power to change someone's life through our relationships and at Spa Levo360, this is what we do. When it is time to wind down, there is no better place to shed your stress."
+    </string>
 </resources>

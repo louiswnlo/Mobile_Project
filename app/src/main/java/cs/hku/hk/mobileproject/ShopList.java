@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
@@ -38,11 +39,22 @@ public class ShopList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_list);
 
+        Intent intent = getIntent();
+        String serviceName = intent.getStringExtra("SERVICE_NAME");
+
         mListView = (ListView) findViewById(R.id.listview);
 
         ViewGroup header = (ViewGroup) getLayoutInflater().inflate(R.layout.toolbar_back, mListView, false);
         TextView headerTitle = (TextView) header.findViewById(R.id.service_title);
-        headerTitle.setText("Testing");
+        headerTitle.setText(serviceName);
+
+        ImageButton backBtn = (ImageButton) header.findViewById(R.id.back_btn);
+        backBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         mListView.addHeaderView(header, null, false);
 
