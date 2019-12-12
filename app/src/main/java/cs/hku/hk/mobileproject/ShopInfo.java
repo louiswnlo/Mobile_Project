@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class ShopInfo extends AppCompatActivity implements TreatmentBottomDialog.BottomSheetListener, TimeBottomDialog.BottomSheetListener {
@@ -19,6 +20,13 @@ public class ShopInfo extends AppCompatActivity implements TreatmentBottomDialog
         int shopId = intent.getIntExtra("SHOP_ID", 0);
 
 
+        ImageButton backBtn = (ImageButton) findViewById(R.id.back_btn);
+        backBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         TextView title = (TextView) findViewById(R.id.service_title);
 
