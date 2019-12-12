@@ -16,6 +16,8 @@
         android:layout_marginEnd="7dp"
         android:layout_marginRight="7dp"
         android:text="Username/Email:"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/editText"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,6 +30,8 @@
         android:layout_marginEnd="7dp"
         android:layout_marginRight="7dp"
         android:text="Password:"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/editText2"
         app:layout_constraintEnd_toStartOf="@+id/editText2" />
 
@@ -52,11 +56,12 @@
         app:layout_constraintTop_toBottomOf="@+id/editText" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/Login Button"
+        android:layout_width="129dp"
+        android:layout_height="62dp"
         android:layout_marginTop="78dp"
         android:text="Login"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText2" />

@@ -135,14 +135,14 @@
                 android:id="@+id/textView16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Shop Info:"
+                android:text="Shop Info: It opened in 2017."
                 android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/textView17"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Location:"
+                android:text="Location: 5D, Lucky Maison, Mongkok"
                 android:textSize="24sp" />
 
         </LinearLayout>

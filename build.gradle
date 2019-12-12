@@ -29,3 +29,21 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
 }
+
+buildscript {
+
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.1'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
