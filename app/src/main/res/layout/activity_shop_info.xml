@@ -132,18 +132,31 @@
                 android:layout_height="191dp" />
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/ShopInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Shop Info: It opened in 2017."
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/Location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Location: 5D, Lucky Maison, Mongkok"
                 android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/Map"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Map"
+                android:textSize="24sp" />
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
 
         </LinearLayout>
 

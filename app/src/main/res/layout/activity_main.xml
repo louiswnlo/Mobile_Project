@@ -130,7 +130,7 @@
         app:layout_constraintVertical_bias="0.045" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/ShopInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hair"
@@ -146,7 +146,7 @@
         app:layout_constraintVertical_bias="0.045" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/Map"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Eyelashes"
