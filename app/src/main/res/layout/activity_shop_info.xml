@@ -121,17 +121,6 @@
                 android:background="?android:attr/listDivider" />
 
             <TextView
-                android:id="@+id/textView13"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Reviews"
-                android:textSize="24sp" />
-
-            <ListView
-                android:layout_width="match_parent"
-                android:layout_height="191dp" />
-
-            <TextView
                 android:id="@+id/textView16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
