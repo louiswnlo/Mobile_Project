@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class ShopInfo extends AppCompatActivity {
+public class ShopInfo extends AppCompatActivity implements TreatmentBottomDialog.BottomSheetListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,5 +34,12 @@ public class ShopInfo extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onButtonClicked(Integer treatmentId, String treatmentName) {
+        Button treatmentBtn = (Button) findViewById(R.id.treatment_btn);
+
+        treatmentBtn.setText(treatmentName);
     }
 }

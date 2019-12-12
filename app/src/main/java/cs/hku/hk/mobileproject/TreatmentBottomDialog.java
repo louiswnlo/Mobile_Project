@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,6 +19,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class TreatmentBottomDialog extends BottomSheetDialogFragment {
 
+    private BottomSheetListener mListener;
     ListView mListView;
 
     // Test Data --> Replace with Database data (Any structure you prefer)
@@ -34,9 +36,7 @@ public class TreatmentBottomDialog extends BottomSheetDialogFragment {
 
         mListView = (ListView) v.findViewById(R.id.treatment_listview);
 
-        ViewGroup header = (ViewGroup) getLayoutInflater().inflate(R.layout.toolbar_back, mListView, false);
-        TextView headerTitle = (TextView) header.findViewById(R.id.service_title);
-        headerTitle.setText("Testing");
+        ViewGroup header = (ViewGroup) getLayoutInflater().inflate(R.layout.toolbar_treatment, mListView, false);
 
         mListView.addHeaderView(header, null, false);
 
@@ -44,6 +44,22 @@ public class TreatmentBottomDialog extends BottomSheetDialogFragment {
         mListView.setAdapter(customAdaptor);
 
         return v;
+    }
+
+    public interface BottomSheetListener {
+        void onButtonClicked(Integer treatmentId, String treatmentName);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        try {
+            mListener = (BottomSheetListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString()
+                    + " must implement BottomSheetListener");
+        }
     }
 
     class CustomAdaptor extends BaseAdapter {
@@ -77,6 +93,14 @@ public class TreatmentBottomDialog extends BottomSheetDialogFragment {
             treatmentNameTextView.setText(treatmentnames[i]);
             timeTextView.setText(times[i] + " min");
             priceView.setText("HK$ " + prices[i]);
+
+            mView.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    mListener.onButtonClicked(curNum, treatmentnames[curNum]);
+                    dismiss();
+                }
+            });
 
             return mView;
         }
