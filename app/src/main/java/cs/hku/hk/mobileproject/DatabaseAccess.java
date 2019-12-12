@@ -34,7 +34,7 @@ public class DatabaseAccess {
             instance = new DatabaseAccess(context);
         }
         return instance;
-    }
+}
 
     /**
      * Open the database connection.
