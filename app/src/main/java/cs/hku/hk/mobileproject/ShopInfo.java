@@ -15,7 +15,6 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 public class ShopInfo extends AppCompatActivity implements TreatmentBottomDialog.BottomSheetListener, TimeBottomDialog.BottomSheetListener, bookingBottomDialog.BottomSheetListener {
@@ -67,6 +66,15 @@ public class ShopInfo extends AppCompatActivity implements TreatmentBottomDialog
             }
         });
 
+        ImageButton mapBtn = (ImageButton) findViewById(R.id.map_Btn);
+        mapBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ShopInfo.this, Map.class);
+                startActivity(intent);
+            }
+        });
+
         bookingBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -74,7 +82,6 @@ public class ShopInfo extends AppCompatActivity implements TreatmentBottomDialog
                 bottomSheet.show(getSupportFragmentManager(), "BookingBottomSheet");
             }
         });
-
     }
 
     @Override
@@ -118,4 +125,5 @@ public class ShopInfo extends AppCompatActivity implements TreatmentBottomDialog
             handler.postDelayed(runnable, 3000);
         }
     }
+
 }
