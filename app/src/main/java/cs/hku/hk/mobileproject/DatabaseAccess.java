@@ -70,16 +70,32 @@ public class DatabaseAccess {
         this.database.execSQL(insert);
     }
 
-    public String[] selectSQL(String item, String table){
+    public List<String> selectSQL(String item, String table){
         String query = "select "+item+" From "+table;
         Cursor cursor = database.rawQuery("SELECT * FROM user", null);
-        String[] result = null;
-        int i=0;
+        List<String> result = new ArrayList<>();
+
         if(cursor.getCount()>0){
             if(cursor.moveToFirst()){
                 do{
-                    result[i] = cursor.getString(0);
-                    i++;
+                    result.add(cursor.getString(0));
+
+                }while (cursor.moveToNext());
+            }
+        }
+        return result;
+    }
+
+    public List<String> whereSQL(String query,String[] whereArgs){
+
+        Cursor cursor = database.rawQuery(query, whereArgs);
+        List<String> result = new ArrayList<>();
+
+        if(cursor.getCount()>0){
+            if(cursor.moveToFirst()){
+                do{
+                    result.add(cursor.getString(0));
+
                 }while (cursor.moveToNext());
             }
         }

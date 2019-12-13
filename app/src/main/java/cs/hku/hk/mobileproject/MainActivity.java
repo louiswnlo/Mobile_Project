@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        System.out.println("hihi");
         DatabaseAccess db = DatabaseAccess.getInstance(this);
         db.open();
         ImageButton nailBtn = (ImageButton) findViewById(R.id.nail_btn);

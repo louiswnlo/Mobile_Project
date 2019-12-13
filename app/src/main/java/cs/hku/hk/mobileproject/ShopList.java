@@ -28,21 +28,15 @@ import java.util.ListIterator;
 public class ShopList extends AppCompatActivity {
 
     ListView mListView;
-
-
     // Test Data --> Replace with Database data (Any structure you prefer)
-    String[] shopIds;
-    int[] images = {R.drawable.shop_img_1,
-            R.drawable.shop_img_2,
-            R.drawable.shop_img_3,
-            R.drawable.shop_img_4,
-            R.drawable.shop_img_5,
-            R.drawable.shop_img_6 };
-
-   String []shopnames;
+    List<String> shopIds;
+    List<String> imagesHolder;
+    List<Integer> images;
+    List<String> shopnames;
+    List<String> ratings;
     DatabaseAccess db;
-//laterrr
-    String[] ratings = {"5.0", "5.0", "4.5", "4.5", "4.0", "4.0"};
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,8 +73,7 @@ public class ShopList extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return
-                    images.length;
+            return 0;
         }
 
         @Override
@@ -98,9 +91,12 @@ public class ShopList extends AppCompatActivity {
 
             final int curNum = i;
 
-            //db.insert("insert into albums (Albumid,ArtistId,Title) values (\"348\",\'1\',\"Michael\")");
-           // System.out.println(db.checkDataBase());
+
+
+
             shopIds = db.selectSQL("shop_id","shop");
+            imagesHolder = db.selectSQL("photo_url","shop");
+            ratings = db.selectSQL("ratings","shop");
             //images = getImages(db);
 
             View mView = getLayoutInflater().inflate(R.layout.layout_shop_list, null);
@@ -110,20 +106,22 @@ public class ShopList extends AppCompatActivity {
             RatingBar mRatingBar = (RatingBar) mView.findViewById(R.id.rating_bar);
 
             mImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            mImageView.setImageResource(images[i]);
+            for(String s : imagesHolder ) images.add(Integer.valueOf(s));
+
+            mImageView.setImageResource(images.get(curNum));
             mImageView.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(ShopList.this, ShopInfo.class);
-                    intent.putExtra("SHOP_ID", shopIds[curNum]);
+                    intent.putExtra("SHOP_ID", shopIds.get(curNum));
                     startActivity(intent);
                 }
             });
 
-            shopnameTextView.setText(shopnames[curNum]);
+            shopnameTextView.setText(shopnames.get(curNum));
 
-            mRatingBar.setRating(Float.parseFloat(ratings[curNum]));
+            mRatingBar.setRating(Float.parseFloat(ratings.get(curNum)));
 
             return mView;
         }
