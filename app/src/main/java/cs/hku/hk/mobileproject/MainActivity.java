@@ -7,7 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.content.Context;
+import android.os.Bundle;
+import android.content.Context;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Toolbar;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,9 +22,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        System.out.println("hihi");
         DatabaseAccess db = DatabaseAccess.getInstance(this);
         db.open();
-
         ImageButton nailBtn = (ImageButton) findViewById(R.id.nail_btn);
         ImageButton eyelashesBtn = (ImageButton) findViewById(R.id.eyelashes_btn);
         ImageButton massageBtn = (ImageButton) findViewById(R.id.massage_btn);
@@ -59,5 +66,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        db.selectSQL("user_id","user");
+        db.close();
+
     }
+
 }

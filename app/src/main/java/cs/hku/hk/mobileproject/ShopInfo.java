@@ -14,8 +14,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+
+import java.util.List;
 
 public class ShopInfo extends AppCompatActivity implements TreatmentBottomDialog.BottomSheetListener, TimeBottomDialog.BottomSheetListener, bookingBottomDialog.BottomSheetListener {
 
@@ -27,11 +30,13 @@ public class ShopInfo extends AppCompatActivity implements TreatmentBottomDialog
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_info);
-
+        DatabaseAccess db = DatabaseAccess.getInstance(this);
         confirmDialog = new Dialog(this);
 
         Intent intent = getIntent();
-        final int shopId = intent.getIntExtra("SHOP_ID", 0);
+        final int shopId = intent.getIntExtra("SHOP_ID", 0 );
+
+        final List<String> photo = db.whereSQL("SELECT photo_url FROM shop WHERE shop_id = ?",new String[] {String.valueOf(shopId)});
 
 
         ImageButton backBtn = (ImageButton) findViewById(R.id.back_btn);
@@ -42,12 +47,25 @@ public class ShopInfo extends AppCompatActivity implements TreatmentBottomDialog
             }
         });
 
-        TextView title = (TextView) findViewById(R.id.service_title);
 
+        TextView title = (TextView) findViewById(R.id.service_title);
         title.setText("SHOP ID = " + shopId);
 
+
+        final List<String> ratingN = db.whereSQL("SELECT rating FROM shop WHERE shop_id = ?",new String[] {String.valueOf(shopId)});
+
+
+        String[] shoparg = new String[] {String.valueOf(shopId)};
+
         Button treatmentBtn = (Button) findViewById(R.id.treatment_btn);
+
+        final List<String> treatment = db.whereSQL("SELECT name FROM treatment WHERE shop_id = ?",shoparg);
+
+
         Button timeBtn = (Button) findViewById(R.id.time_btn);
+        final List<String> time = db.whereSQL("SELECT available_time FrOM treatment WHERE shop_id = ?",new String[] {String.valueOf(shopId)});
+        treatmentBtn.setText("Available time : "+time.get(0));
+
         Button bookingBtn = (Button) findViewById(R.id.book_btn);
 
         treatmentBtn.setOnClickListener(new View.OnClickListener(){

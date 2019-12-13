@@ -1,8 +1,8 @@
 package cs.hku.hk.mobileproject;
 
-
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -42,7 +42,9 @@ public class DatabaseAccess {
     public void open() {
         this.database = openHelper.getWritableDatabase();
     }
-
+    public long count() {
+        return DatabaseUtils.queryNumEntries(database,"user");
+    }
     /**
      * Close the database connection.
      */
@@ -57,15 +59,46 @@ public class DatabaseAccess {
      *
      * @return a List of quotes
      */
-    public List<String> getQuotes() {
-        List<String> list = new ArrayList<>();
-        Cursor cursor = database.rawQuery("SELECT * FROM quotes", null);
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            list.add(cursor.getString(0));
-            cursor.moveToNext();
+    public Cursor extract(String sql,String[] args) {
+
+        Cursor cursor = database.rawQuery(sql , args);
+        return cursor;
+    }
+
+
+    public void insert(String insert) {
+        this.database.execSQL(insert);
+    }
+
+    public List<String> selectSQL(String item, String table){
+        String query = "select "+item+" From "+table;
+        Cursor cursor = database.rawQuery("SELECT * FROM user", null);
+        List<String> result = new ArrayList<>();
+
+        if(cursor.getCount()>0){
+            if(cursor.moveToFirst()){
+                do{
+                    result.add(cursor.getString(0));
+
+                }while (cursor.moveToNext());
+            }
         }
-        cursor.close();
-        return list;
+        return result;
+    }
+
+    public List<String> whereSQL(String query,String[] whereArgs){
+
+        Cursor cursor = database.rawQuery(query, whereArgs);
+        List<String> result = new ArrayList<>();
+
+        if(cursor.getCount()>0){
+            if(cursor.moveToFirst()){
+                do{
+                    result.add(cursor.getString(0));
+
+                }while (cursor.moveToNext());
+            }
+        }
+        return result;
     }
 }

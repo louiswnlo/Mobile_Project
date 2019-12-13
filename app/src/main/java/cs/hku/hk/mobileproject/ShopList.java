@@ -1,8 +1,12 @@
 package cs.hku.hk.mobileproject;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.media.Rating;
 import android.os.Bundle;
@@ -15,29 +19,30 @@ import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+
 public class ShopList extends AppCompatActivity {
 
     ListView mListView;
-
     // Test Data --> Replace with Database data (Any structure you prefer)
-    int[] shopIds = {1,2,3,4,5,6};
+    List<String> shopIds;
+    List<String> imagesHolder;
+    List<Integer> images;
+    List<String> shopnames;
+    List<String> ratings;
+    DatabaseAccess db;
 
-    int[] images = {R.drawable.shop_img_1,
-                    R.drawable.shop_img_2,
-                    R.drawable.shop_img_3,
-                    R.drawable.shop_img_4,
-                    R.drawable.shop_img_5,
-                    R.drawable.shop_img_6 };
 
-    String[] shopnames = {"Foot Spa Jordan", "Levo Spa", "The Foot Room",
-                          "Beauty Parade", "Float on Hong Kong", "Charming Beuty & Slimming"};
-
-    String[] ratings = {"5.0", "5.0", "4.5", "4.5", "4.0", "4.0"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_list);
+        DatabaseAccess db = DatabaseAccess.getInstance(this);
 
         Intent intent = getIntent();
         String serviceName = intent.getStringExtra("SERVICE_NAME");
@@ -60,13 +65,15 @@ public class ShopList extends AppCompatActivity {
 
         CustomAdaptor customAdaptor = new CustomAdaptor();
         mListView.setAdapter(customAdaptor);
+
     }
+
 
     class CustomAdaptor extends BaseAdapter {
 
         @Override
         public int getCount() {
-            return images.length;
+            return 0;
         }
 
         @Override
@@ -84,6 +91,14 @@ public class ShopList extends AppCompatActivity {
 
             final int curNum = i;
 
+
+
+
+            shopIds = db.selectSQL("shop_id","shop");
+            imagesHolder = db.selectSQL("photo_url","shop");
+            ratings = db.selectSQL("ratings","shop");
+            //images = getImages(db);
+
             View mView = getLayoutInflater().inflate(R.layout.layout_shop_list, null);
 
             ImageView mImageView = (ImageView) mView.findViewById(R.id.bg_img);
@@ -91,20 +106,22 @@ public class ShopList extends AppCompatActivity {
             RatingBar mRatingBar = (RatingBar) mView.findViewById(R.id.rating_bar);
 
             mImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            mImageView.setImageResource(images[i]);
+            for(String s : imagesHolder ) images.add(Integer.valueOf(s));
+
+            mImageView.setImageResource(images.get(curNum));
             mImageView.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(ShopList.this, ShopInfo.class);
-                    intent.putExtra("SHOP_ID", shopIds[curNum]);
+                    intent.putExtra("SHOP_ID", shopIds.get(curNum));
                     startActivity(intent);
                 }
             });
 
-            shopnameTextView.setText(shopnames[i]);
+            shopnameTextView.setText(shopnames.get(curNum));
 
-            mRatingBar.setRating(Float.parseFloat(ratings[i]));
+            mRatingBar.setRating(Float.parseFloat(ratings.get(curNum)));
 
             return mView;
         }
