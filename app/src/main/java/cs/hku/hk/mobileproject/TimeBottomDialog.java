@@ -20,7 +20,7 @@ public class TimeBottomDialog extends BottomSheetDialogFragment {
     ListView mListView;
 
     // Test Data --> Replace with Database data (Any structure you prefer)
-    String[] availableTime = { "10:00 AM", "10:15 AM" , "10:30 AM", "10:45 AM", "10:50 AM"};
+    String[] availableTime = { "10:00 AM", "10:15 AM" , "10:30 AM" };
 
 
     @Nullable
