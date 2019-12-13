@@ -1,13 +1,13 @@
 package cs.hku.hk.mobileproject;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ShopInfo extends AppCompatActivity implements TreatmentBottomDialog.BottomSheetListener, TimeBottomDialog.BottomSheetListener {
 
@@ -51,6 +51,16 @@ public class ShopInfo extends AppCompatActivity implements TreatmentBottomDialog
             }
         });
 
+        ImageButton mapBtn = (ImageButton) findViewById(R.id.map_Btn);
+        mapBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ShopInfo.this, Map.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     @Override
@@ -66,4 +76,5 @@ public class ShopInfo extends AppCompatActivity implements TreatmentBottomDialog
 
         timeBtn.setText(bookTime);
     }
+
 }
