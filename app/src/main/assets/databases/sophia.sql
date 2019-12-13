@@ -2,10 +2,10 @@
 -- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
--- 主機: sophia
--- 產生時間： 2019 年 12 月 13 日 19:57
--- 伺服器版本: 5.7.28-0ubuntu0.18.04.4
--- PHP 版本： 7.2.24-0ubuntu0.18.04.1
+-- Host: sophia
+-- Generation Time: Dec 13, 2019 at 10:06 PM
+-- Server version: 5.7.28-0ubuntu0.18.04.4
+-- PHP Version: 7.2.24-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,15 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫： `thysung`
+-- Database: `thysung`
 --
+CREATE DATABASE IF NOT EXISTS `thysung` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `thysung`;
 
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `service`
+-- Table structure for table `service`
 --
 
 CREATE TABLE `service` (
@@ -33,7 +35,7 @@ CREATE TABLE `service` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- 資料表的匯出資料 `service`
+-- Dumping data for table `service`
 --
 
 INSERT INTO `service` (`service_id`, `name`, `discount`) VALUES
@@ -45,7 +47,7 @@ INSERT INTO `service` (`service_id`, `name`, `discount`) VALUES
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `shop`
+-- Table structure for table `shop`
 --
 
 CREATE TABLE `shop` (
@@ -61,7 +63,7 @@ CREATE TABLE `shop` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- 資料表的匯出資料 `shop`
+-- Dumping data for table `shop`
 --
 
 INSERT INTO `shop` (`shop_id`, `service_id`, `shopname`, `location`, `discount`, `logo_url`, `photo_url`, `district_id`, `shop_info`) VALUES
@@ -75,7 +77,7 @@ INSERT INTO `shop` (`shop_id`, `service_id`, `shopname`, `location`, `discount`,
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `treatment`
+-- Table structure for table `treatment`
 --
 
 CREATE TABLE `treatment` (
@@ -88,7 +90,7 @@ CREATE TABLE `treatment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- 資料表的匯出資料 `treatment`
+-- Dumping data for table `treatment`
 --
 
 INSERT INTO `treatment` (`treatment_id`, `shop_id`, `duration`, `price`, `description`, `available_time`) VALUES
@@ -102,7 +104,7 @@ INSERT INTO `treatment` (`treatment_id`, `shop_id`, `duration`, `price`, `descri
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -118,7 +120,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- 資料表的匯出資料 `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`user_id`, `gender`, `username`, `password`, `email`, `photo`, `firstname`, `lastname`, `display`) VALUES
@@ -127,29 +129,29 @@ INSERT INTO `user` (`user_id`, `gender`, `username`, `password`, `email`, `photo
 (3, 'F', 'natalie', 123456, 'natalie@emai.com', 91919191, 'natalie', 'kong', 'nataliekong');
 
 --
--- 已匯出資料表的索引
+-- Indexes for dumped tables
 --
 
 --
--- 資料表索引 `service`
+-- Indexes for table `service`
 --
 ALTER TABLE `service`
   ADD PRIMARY KEY (`service_id`);
 
 --
--- 資料表索引 `shop`
+-- Indexes for table `shop`
 --
 ALTER TABLE `shop`
   ADD PRIMARY KEY (`shop_id`);
 
 --
--- 資料表索引 `treatment`
+-- Indexes for table `treatment`
 --
 ALTER TABLE `treatment`
   ADD PRIMARY KEY (`treatment_id`);
 
 --
--- 資料表索引 `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`);
