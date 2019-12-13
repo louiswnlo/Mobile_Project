@@ -164,16 +164,6 @@
                 android:background="?android:attr/listDivider" />
 
             <TextView
-                android:id="@+id/textView17"
-                android:text="Location"
-                android:textSize="20sp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
                 android:id="@+id/location_txt"
                 android:text="Flat 2A, 2/F, Winway Building, 50 Wellington Street, Central, Hong Kong"
                 android:textSize="12sp"
@@ -191,6 +181,19 @@
 <!--                android:layout_height="wrap_content"-->
 <!--                android:text="Location: 5D, Lucky Maison, Mongkok"-->
 <!--                android:textSize="24sp" />-->
+
+            <TextView
+                android:id="@+id/Map"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Map"
+                android:textSize="24sp" />
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
 
         </LinearLayout>
 
