@@ -1,8 +1,12 @@
 package cs.hku.hk.mobileproject;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.media.Rating;
 import android.os.Bundle;
@@ -14,29 +18,36 @@ import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+
 public class ShopList extends AppCompatActivity {
 
     ListView mListView;
 
+
     // Test Data --> Replace with Database data (Any structure you prefer)
-    int[] shopIds = {1,2,3,4,5,6};
-
+    String[] shopIds;
     int[] images = {R.drawable.shop_img_1,
-                    R.drawable.shop_img_2,
-                    R.drawable.shop_img_3,
-                    R.drawable.shop_img_4,
-                    R.drawable.shop_img_5,
-                    R.drawable.shop_img_6 };
+            R.drawable.shop_img_2,
+            R.drawable.shop_img_3,
+            R.drawable.shop_img_4,
+            R.drawable.shop_img_5,
+            R.drawable.shop_img_6 };
 
-    String[] shopnames = {"Foot Spa Jordan", "Levo Spa", "The Foot Room",
-                          "Beauty Parade", "Float on Hong Kong", "Charming Beuty & Slimming"};
-
+   String []shopnames;
+    DataBaseHelper db;
+//laterrr
     String[] ratings = {"5.0", "5.0", "4.5", "4.5", "4.0", "4.0"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_list);
+        DataBaseHelper db = new DataBaseHelper(this);
 
         mListView = (ListView) findViewById(R.id.listview);
 
@@ -48,13 +59,16 @@ public class ShopList extends AppCompatActivity {
 
         CustomAdaptor customAdaptor = new CustomAdaptor();
         mListView.setAdapter(customAdaptor);
+
     }
+
 
     class CustomAdaptor extends BaseAdapter {
 
         @Override
         public int getCount() {
-            return images.length;
+            return
+                    images.length;
         }
 
         @Override
@@ -71,6 +85,11 @@ public class ShopList extends AppCompatActivity {
         public View getView(int i, View view, ViewGroup viewGroup) {
 
             final int curNum = i;
+
+            //db.insert("insert into albums (Albumid,ArtistId,Title) values (\"348\",\'1\',\"Michael\")");
+           // System.out.println(db.checkDataBase());
+            shopIds = db.getstuff("shop_id","shop");
+            //images = getImages(db);
 
             View mView = getLayoutInflater().inflate(R.layout.layout_shop_list, null);
 
@@ -90,9 +109,9 @@ public class ShopList extends AppCompatActivity {
                 }
             });
 
-            shopnameTextView.setText(shopnames[i]);
+            shopnameTextView.setText(shopnames[curNum]);
 
-            mRatingBar.setRating(Float.parseFloat(ratings[i]));
+            mRatingBar.setRating(Float.parseFloat(ratings[curNum]));
 
             return mView;
         }

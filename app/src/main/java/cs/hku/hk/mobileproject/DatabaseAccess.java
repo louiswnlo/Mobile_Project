@@ -3,6 +3,7 @@ package cs.hku.hk.mobileproject;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -42,7 +43,9 @@ public class DatabaseAccess {
     public void open() {
         this.database = openHelper.getWritableDatabase();
     }
-
+    public long count() {
+        return DatabaseUtils.queryNumEntries(database,"user");
+    }
     /**
      * Close the database connection.
      */
@@ -57,6 +60,17 @@ public class DatabaseAccess {
      *
      * @return a List of quotes
      */
+    public Cursor extract(String sql,String[] args) {
+
+        Cursor cursor = database.rawQuery(sql , args);
+        return cursor;
+    }
+
+
+    public void insert(String insert) {
+        this.database.execSQL(insert);
+    }
+
     public List<String> getQuotes() {
         List<String> list = new ArrayList<>();
         Cursor cursor = database.rawQuery("SELECT * FROM quotes", null);
