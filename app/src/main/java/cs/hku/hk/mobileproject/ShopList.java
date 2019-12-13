@@ -40,7 +40,7 @@ public class ShopList extends AppCompatActivity {
             R.drawable.shop_img_6 };
 
    String []shopnames;
-    DataBaseHelper db;
+    DatabaseAccess db;
 //laterrr
     String[] ratings = {"5.0", "5.0", "4.5", "4.5", "4.0", "4.0"};
 
@@ -48,7 +48,7 @@ public class ShopList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_list);
-        DataBaseHelper db = new DataBaseHelper(this);
+        DatabaseAccess db = DatabaseAccess.getInstance(this);
 
         Intent intent = getIntent();
         String serviceName = intent.getStringExtra("SERVICE_NAME");
@@ -100,7 +100,7 @@ public class ShopList extends AppCompatActivity {
 
             //db.insert("insert into albums (Albumid,ArtistId,Title) values (\"348\",\'1\',\"Michael\")");
            // System.out.println(db.checkDataBase());
-            shopIds = db.getstuff("shop_id","shop");
+            shopIds = db.selectSQL("shop_id","shop");
             //images = getImages(db);
 
             View mView = getLayoutInflater().inflate(R.layout.layout_shop_list, null);

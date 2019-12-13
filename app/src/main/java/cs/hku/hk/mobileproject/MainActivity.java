@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DataBaseHelper db = new DataBaseHelper(this);
+        DatabaseAccess db = DatabaseAccess.getInstance(this);
         db.open();
         ImageButton nailBtn = (ImageButton) findViewById(R.id.nail_btn);
         ImageButton eyelashesBtn = (ImageButton) findViewById(R.id.eyelashes_btn);
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        db.getstuff("user_id","user");
+        db.selectSQL("user_id","user");
         db.close();
 
     }

@@ -1,6 +1,5 @@
 package cs.hku.hk.mobileproject;
 
-
 import android.content.Context;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
@@ -71,15 +70,19 @@ public class DatabaseAccess {
         this.database.execSQL(insert);
     }
 
-    public List<String> getQuotes() {
-        List<String> list = new ArrayList<>();
-        Cursor cursor = database.rawQuery("SELECT * FROM quotes", null);
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            list.add(cursor.getString(0));
-            cursor.moveToNext();
+    public String[] selectSQL(String item, String table){
+        String query = "select "+item+" From "+table;
+        Cursor cursor = database.rawQuery("SELECT * FROM user", null);
+        String[] result = null;
+        int i=0;
+        if(cursor.getCount()>0){
+            if(cursor.moveToFirst()){
+                do{
+                    result[i] = cursor.getString(0);
+                    i++;
+                }while (cursor.moveToNext());
+            }
         }
-        cursor.close();
-        return list;
+        return result;
     }
 }
